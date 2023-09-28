@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import FABSOFT20232.FABSOFT2023.repository.ProductRepository;
 
 @Controller
-@RequestMapping
+@RequestMapping("/products")
 public class ProductController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ProductController {
     @ResponseBody
     public ModelAndView index() {
         var productList = repository.findAll();
-        return new ModelAndView("produto/index", "productList", productList);
+        return new ModelAndView("product/index", "productList", productList);
     }
     
 }

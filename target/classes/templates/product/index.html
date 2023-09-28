@@ -10,7 +10,7 @@
             <a th:href="@{/product/new}"
                 class="btn btn-primary">Novo</a>
 
-            <table class="table">
+            <table class="table" id="tableProduct">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -21,18 +21,17 @@
                 <tbody>
                     <tr th:each="product : ${productList}">
                         <td th:text="${product.nome}"></td>
-                        <td th:text="${product.value}"></td> <td><a class="btn btn-secondary"
+                        <td th:text="${product.productValue}"></td> <td><a class="btn btn-secondary"
                             th:href="@{'/products/update/' + 
                             ${oneProduct.id}}">Alterar</a>
-                            <button class="btn btn-danger">Excluir</button>
-                        
+                            <button class="btn btn-danger js-delete">Excluir</button>
                         </td>
                     </tr>
                 </tbody>
             </table> 
         </main>
 
-        <div class="modal" tabindex="-1" id="modalProduct">
+        <div class="modal" tabindex="-1" id="modalcliente">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
