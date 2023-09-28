@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
     @GetMapping
     @ResponseBody
-    public String index(){
+    public String index() {
         return "Mãe eu nao acredito";
     }
+
+//    @GetMapping
+  //  public ModelAndView index() {
+      //  return new ModelAndView("cliente/index");
+    //}
 }
