@@ -16,7 +16,7 @@ public class Product {
     @Column(nullable = false, length = 1000)
     private String name;
 
-    private float productValue;
+//    private float productValue;
 
     public long getId() {
         return id;
@@ -34,13 +34,13 @@ public class Product {
         this.name = name;
     }
 
-    public float getValor() {
-        return productValue;
-    }
-
-    public void setValor(float valor) {
-        this.productValue = valor;
-    }
+//    public float getValor() {
+//        return productValue;
+//    }
+//
+//    public void setValor(float valor) {
+//        this.productValue = valor;
+//    }
 
     
 
