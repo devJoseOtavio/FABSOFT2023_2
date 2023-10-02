@@ -13,9 +13,4 @@ public class HomeController {
     public String index() {
         return "Mãe eu nao acredito";
     }
-
-//    @GetMapping
-  //  public ModelAndView index() {
-      //  return new ModelAndView("cliente/index");
-    //}
 }

@@ -41,8 +41,4 @@ public class Product {
 //    public void setValor(float valor) {
 //        this.productValue = valor;
 //    }
-
-    
-
-    //ProductType ProductType;
 }

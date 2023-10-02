@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import FABSOFT20232.FABSOFT2023.model.Product;
 import FABSOFT20232.FABSOFT2023.repository.ProductRepository;
+import FABSOFT20232.FABSOFT2023.service.ProductService;
 import jakarta.transaction.Transactional;
 
 @Controller
@@ -19,12 +20,12 @@ import jakarta.transaction.Transactional;
 public class ProductController {
 
     @Autowired
-    private ProductRepository repository;
+    private ProductService service;
 
     @GetMapping
     @ResponseBody
     public ModelAndView index() {
-        var productList = repository.findAll();
+        var productList = service.getAll();
         return new ModelAndView("product/index", "productList", productList);
     }
     
@@ -36,7 +37,7 @@ public class ProductController {
 
     @PostMapping
     public ModelAndView save(Product product) {
-        repository.save(product);
+        service.save(product);
         return new ModelAndView("redirect:/products");
     }
 
@@ -45,9 +46,10 @@ public class ProductController {
         return new ModelAndView("product/form", "product", product);
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
     @Transactional
-    public void delete(@PathVariable Long id) {
-        repository.deleteById(id);
+    public ModelAndView delete(@PathVariable("id") Product product) {
+        service.delete(product);
+        return new ModelAndView("redirect:/products");
     }
 }
