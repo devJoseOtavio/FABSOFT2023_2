@@ -1,5 +1,6 @@
 package FABSOFT20232.FABSOFT2023.model;
 
+import FABSOFT20232.FABSOFT2023.enumerator.ProductType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +17,9 @@ public class Product {
     @Column(nullable = false, length = 1000)
     private String name;
 
-//    private float productValue;
+    private float productValue;
+
+    private ProductType productType;
 
     public long getId() {
         return id;
@@ -34,11 +37,20 @@ public class Product {
         this.name = name;
     }
 
-//    public float getValor() {
-//        return productValue;
-//    }
-//
-//    public void setValor(float valor) {
-//        this.productValue = valor;
-//    }
+    public float getProductValue() {
+        return productValue;
+    }
+
+    public void setProductValue(float productValue) {
+        this.productValue = productValue;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+    
 }

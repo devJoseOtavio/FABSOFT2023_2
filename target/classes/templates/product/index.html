@@ -19,7 +19,8 @@
                 <tbody>
                     <tr th:each="oneProduct : ${productList}">
                         <td th:text="${oneProduct.name}"></td>
-<!--                        <td th:text="${oneProduct.productValue}"></td>-->
+                        <td th:text="${oneProduct.productValue}"></td>
+                        <td th:text="${oneProduct.productType}"></td>
                             <td><a class="btn btn-secondary" th:href="@{'products/update/' + ${oneProduct.id}}">Alterar</a>
                                 <button 
                                 th:data-id="${oneProduct.id}"
