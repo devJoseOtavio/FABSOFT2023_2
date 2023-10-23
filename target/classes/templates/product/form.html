@@ -21,9 +21,10 @@
                         <input type="number" class="form-control"th:field="*{productValue}" id="txtValue">
                     </label>
                     <label for="txtValue">Selecione o tipo de produto
-                        <select class="form-select form-select-lg mb-3">
-                            <option value="" selected disabled hidden>Tipo de Produto</option>
-                            <option th:each="oneProductType : ${T(FABSOFT20232.FABSOFT2023.enumerator.ProductType).values()}" 
+                        <select class="form-select form-select-lg mb-3" th:field="*{productType}">
+                            <option value="" >Tipo de Produto</option>
+                            <option selected 
+                                    th:each="oneProductType : ${T(FABSOFT20232.FABSOFT2023.enumerator.ProductType).values()}" 
                                     th:value="${oneProductType}" 
                                     th:text="${oneProductType}">
                             </option>
