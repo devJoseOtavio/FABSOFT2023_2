@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import FABSOFT20232.FABSOFT2023.model.Product;
 import FABSOFT20232.FABSOFT2023.repository.ProductRepository;
 import FABSOFT20232.FABSOFT2023.service.ProductService;
+import FABSOFT20232.FABSOFT2023.service.ValidateProductService;
 import jakarta.transaction.Transactional;
 
 @Controller
@@ -21,6 +22,9 @@ public class ProductController {
 
     @Autowired
     private ProductService service;
+
+    @Autowired
+    private ValidateProductService validateService;
 
     @GetMapping
     @ResponseBody
@@ -32,6 +36,7 @@ public class ProductController {
     @GetMapping("/new")
     public ModelAndView register() {
         var newProduct = new Product();
+        validateService.validateSave(newProduct);
         return new ModelAndView("product/form", "product", newProduct);
     }
 
