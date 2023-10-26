@@ -16,7 +16,9 @@
                 <div class="form-group">
                     <label for="txtNome">Digite o nome do Produto
                         <input type="text" class="form-control" th:field="*{name}" id="txtNome">
+                        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger"></p>
                     </label>
+                    
                     <label for="txtValue">Digite o valor do Produto
                         <input type="number" class="form-control"th:field="*{productValue}" id="txtValue">
                     </label>
