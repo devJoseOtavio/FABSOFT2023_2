@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Product {
@@ -16,7 +15,7 @@ public class Product {
     private long id;
 
     @Column(nullable = false, length = 1000)
-    @NotBlank(message = "Campo nome não pode ser em branco")
+//    @NotBlank(message = "Campo nome não pode ser em branco")
     private String name;
     
     private float productValue;

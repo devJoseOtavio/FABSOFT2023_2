@@ -18,7 +18,7 @@ import FABSOFT20232.FABSOFT2023.repository.ProductRepository;
 import FABSOFT20232.FABSOFT2023.service.ProductService;
 import FABSOFT20232.FABSOFT2023.service.ValidateProductService;
 import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/products")
@@ -45,7 +45,8 @@ public class ProductController {
     }
 
     @PostMapping
-    public ModelAndView save(@Valid Product product, BindingResult bindingResult) {
+//    public ModelAndView save(@Valid Product product, BindingResult bindingResult) {
+        public ModelAndView save(Product product, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             HashMap<String,Object> newProduct = new HashMap<>();
