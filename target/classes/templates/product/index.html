@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+    <nav th:replace="layout :: menu">(menu)</nav>
+    <main>
+        <h1>Produtos</h1>
+        <div class="mb-3">
+            <label for="search" class="form-label">Pesquisar produto:</label>
+            <input type="text" id="search" oninput="filterTable()" placeholder="Digite o nome do produto">
+        </div>
+        <hr>
+
+        <a th:href="@{/products/new}" class="btn btn-primary">Novo</a>
+        <table class="table" id="tabProduct">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Tipo de produto</th>
+                    <th>Quantidade de produtos</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="oneProduct : ${productList}">
+                    <td th:text="${oneProduct.name}"></td>
+                    <td th:text="${oneProduct.productValue}"></td>
+                    <td th:text="${oneProduct.productType}"></td>
+                    <td th:text="${oneProduct.productQtd}"></td>
+                    <td>
+                        <a class="btn btn-secondary" th:href="@{'products/update/' + ${oneProduct.id}}">Alterar</a>
+                        <button th:data-id="${oneProduct.id}" class="btn btn-danger js-delete">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <div class="modal" tabindex="-1" id="modalProduct">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir produto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirmar a exclusão do Produto</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/script.js}"></script>
+    <script th:src="@{/searchBar.js}"></script>
+</body>
+</html>

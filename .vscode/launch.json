@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Fabsoft2023Application<orcamento_venda>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "FABSOFT20232.FABSOFT2023.Fabsoft2023Application",
+            "projectName": "orcamento_venda",
+            "args": "--spring.profiles.active=dev",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    lang="pt-br">
+
+    <head th:include="layout :: htmlhead"></head>
+
+    <body>
+        <nav th:replace="layout :: menu">(menu)</nav>
+        <main class="container">
+            <form th:action="@{/products}"
+                method="POST"
+                th:object="${product}">
+
+                <input type="hidden" th:field="*{id}">
+
+                <div class="form-group">
+                    <label for="txtNome">Digite o nome do Produto
+                        <input type="text" class="form-control" th:field="*{name}" id="txtNome">
+                        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger"></p>
+                    </label>
+                    
+                    <label for="txtValue">Digite o valor do Produto
+                        <input type="number" class="form-control"th:field="*{productValue}" id="txtValue">
+                    </label>
+                    <label for="txtValue">Selecione o tipo de produto
+                        <select class="form-select form-select-lg mb-3" th:field="*{productType}">
+                            <option value="" >Tipo de Produto</option>
+                            <option selected 
+                                    th:each="oneProductType : ${T(FABSOFT20232.FABSOFT2023.enumerator.ProductType).values()}" 
+                                    th:value="${oneProductType}" 
+                                    th:text="${oneProductType}">
+                            </option>
+                        </select>
+                    </label>
+                    <label for="txtValue">Quantidade de Produtos
+                        <input type="number" class="form-control"th:field="*{productQtd}" id="txtValue">
+                    </label>
+                </div> <br>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Enviar
+                    </button>
+                </div>
+
+            </form>
+        </main>
+        <div th:include="layout :: footer">(footer)</div>
+    </body>
+</html>

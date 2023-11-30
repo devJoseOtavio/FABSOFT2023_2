@@ -22,6 +22,8 @@ public class Product {
 
     private ProductType productType;
 
+    private int productQtd;
+
     public long getId() {
         return id;
     }
@@ -52,6 +54,14 @@ public class Product {
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+    public int getProductQtd() {
+        return productQtd;
+    }
+
+    public void setProductQtd(int productQtd) {
+        this.productQtd = productQtd;
     }
     
 }
